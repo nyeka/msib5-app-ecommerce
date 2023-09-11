@@ -25,12 +25,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 const prop = defineProps<{
-  tabs: string[]
-}>()
-const includesText = prop.tabs.some((item) => item.includes('/assets' || '/src'))
-const activeTab = ref(prop.tabs[0])
+  tabs: string[];
+}>();
+const includesText = prop.tabs.some((item) =>
+  item.includes("/https" || "/assets" || "/src")
+);
+const activeTab = ref(prop.tabs[0]);
 </script>
 
 <style scoped>
