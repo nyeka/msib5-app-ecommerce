@@ -36,9 +36,13 @@
             <div
               class="bg-gray-200 flex items-center justify-center rounded-[16px]"
             >
-              <img :src="data?.thumbnail" alt="image" class="w-full" />
+              <img
+                :src="image ? image : data?.images[0]"
+                alt="image"
+                class="w-fit h-[650px] object-cover"
+              />
             </div>
-            <Gambar :images="data?.images" />
+            <Tabs @change="handleCustomEvent" :tabs="data?.images" />
           </div>
           <div class="flex flex-col gap-[24px]">
             <div>
@@ -104,16 +108,24 @@ import { ref } from "vue";
 const route = useRoute();
 import { useProductStore } from "../../store/Product";
 import Color from "../element/Color.vue";
-import Gambar from "../element/Gambar.vue";
 import Size from "../element/Size.vue";
+import Tabs from "../element/Tabs.vue";
 import { formatToUSD } from "../../utils/convertToUsd";
 const id = route.params.id;
 const { addProduct } = useProductStore();
+const { data } = (await useFetch(
+  `https://dummyjson.com/products/${id}`
+)) as any;
 
 const itemquantity = ref(1);
 
 const addQuantity = () => {
   itemquantity.value++;
+};
+var image = ref("");
+
+const handleCustomEvent = (data: string) => {
+  image.value = data;
 };
 
 const removeQuantity = () => {
@@ -121,8 +133,4 @@ const removeQuantity = () => {
     itemquantity.value--;
   }
 };
-
-const { data } = (await useFetch(
-  `https://dummyjson.com/products/${id}`
-)) as any;
 </script>

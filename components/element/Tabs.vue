@@ -15,8 +15,12 @@
         id="content"
         v-for="(tab, index) in tabs"
         :key="tab"
-        @click="activeTab = tab"
-        :class="activeTab === tab ? 'not-active' : 'not-active'"
+        @click="
+          () => {
+            (activeTab = tab), $emit('change', prop.tabs[index]);
+          }
+        "
+        :class="activeTab === tab ? 'active' : 'not-active'"
       >
         <img :src="tab" alt="gambar" />
       </li>
@@ -33,6 +37,9 @@ const includesText = prop.tabs.some((item) =>
   item.includes("jpg" || "/assets" || "/src")
 );
 const activeTab = ref(prop.tabs[0]);
+const setActiveTab = (index: number) => {
+  activeTab.value = index as any;
+};
 </script>
 
 <style scoped>
