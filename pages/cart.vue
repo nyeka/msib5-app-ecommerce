@@ -28,7 +28,7 @@
                     </p>
                   </div>
                   <p class="font-bold text-[20px]">
-                    {{ formatIDR(Number(product.price)) }}
+                    {{ formatToUSD(Number(product.price)) }}
                   </p>
                 </div>
                 <div class="flex justify-between">
@@ -49,7 +49,7 @@
             <div class="flex justify-between">
               <p>Sub Total</p>
               <p class="font-bold text-[20px]">
-                {{ formatIDR(store.totalItemsPrice) }}
+                {{ formatToUSD(store.totalItemsPrice) }}
               </p>
             </div>
             <div class="font-normal text-[#98A2B3]">
@@ -76,6 +76,7 @@
 <script setup lang="ts">
 import { useProductStore } from "~/store/Product";
 import { formatIDR } from "~/utils/ConvertNumber";
+import { formatToUSD } from "~/utils/convertToUsd";
 
 const store = useProductStore();
 import Navbar from "@/components/navbar/Navbar.vue";

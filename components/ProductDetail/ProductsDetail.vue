@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col bg-gradient-to-b from-[#C5E5FD] to-[#fff]">
     <Navbar />
-    <div v-if="product" class="container p-8">
+    <div v-if="data.title" class="container p-8">
       <div class="mt-[120px] flex flex-col gap-[32px]">
         <div>
           <div class="flex justify-between items-center">
@@ -16,12 +16,12 @@
               class="text-[#fff] bg-[#0984DD] flex justify-center rounded-[8px] items-center pl-[18px] pr-[18px] pt-[10px] pb-[10px]"
               @click="
                 addProduct({
-                  id: product?.id,
-                  name: product?.name,
-                  price: product?.price,
-                  image: product?.image,
+                  id: data?.id,
+                  name: data?.title,
+                  price: data?.price,
+                  image: data?.thumbnail,
                   quantity: itemquantity,
-                  totalPrice: product?.price * itemquantity,
+                  totalPrice: data?.price * itemquantity,
                 }),
                   $router.push('/cart')
               "
@@ -36,17 +36,17 @@
             <div
               class="bg-gray-200 flex items-center justify-center rounded-[16px]"
             >
-              <img :src="product?.image" alt="image" class="w-full" />
+              <img :src="data?.thumbnail" alt="image" class="w-full" />
             </div>
-            <Gambar :images="product?.listImg" />
+            <Gambar :images="data?.images" />
           </div>
           <div class="flex flex-col gap-[24px]">
             <div>
               <p class="font-bold text-[30px] text-[#101828]">
-                {{ product?.name }}
+                {{ data?.title }}
               </p>
               <p class="font-bold text-[#0764A7]">
-                {{ formatIDR(Number(product?.price)) }}
+                {{ formatToUSD(Number(data?.price)) }}
               </p>
             </div>
             <div class="flex flex-col gap-[12px]">
@@ -80,7 +80,7 @@
               </div>
             </div>
             <div>
-              {{ product?.description }}
+              {{ data?.description }}
             </div>
           </div>
         </div>
@@ -99,16 +99,14 @@
 <script setup lang="ts">
 import Footer from "../footer/Footer.vue";
 import Navbar from "../navbar/Navbar.vue";
-import { formatIDR } from "@/utils/ConvertNumber";
 import { useRoute } from "vue-router";
 import { ref } from "vue";
-import { computed } from "vue";
-import { Product, ProductLatest } from "../../utils/data/Product";
 const route = useRoute();
 import { useProductStore } from "../../store/Product";
 import Color from "../element/Color.vue";
 import Gambar from "../element/Gambar.vue";
 import Size from "../element/Size.vue";
+import { formatToUSD } from "../../utils/convertToUsd";
 const id = route.params.id;
 const { addProduct } = useProductStore();
 
@@ -124,11 +122,7 @@ const removeQuantity = () => {
   }
 };
 
-const product = computed(() => {
-  const product1 = Product.find((item) => item.id === Number(id));
-  if (product1) {
-    return product1;
-  }
-  return ProductLatest.find((item) => item.id === Number(id));
-});
+const { data } = (await useFetch(
+  `https://dummyjson.com/products/${id}`
+)) as any;
 </script>

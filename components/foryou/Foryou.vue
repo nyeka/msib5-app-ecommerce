@@ -7,6 +7,10 @@ import { ProductLatest } from "../../utils/data/Product";
 import { useGetScreenSize } from "../../composables/useGetScreen";
 const { screenWidth } = useGetScreenSize();
 import { Navigation } from "swiper/modules";
+
+const { data } = (await useFetch(
+  "https://dummyjson.com/products?limit=10"
+)) as any;
 </script>
 
 <template>
@@ -16,14 +20,16 @@ import { Navigation } from "swiper/modules";
       v-if="screenWidth > 1024"
       class="flex gap-8 flex-wrap mt-[24px] justify-between"
     >
-      <div v-for="items in ProductLatest" class="flex items-center">
+      <div v-for="items in data.products" class="flex items-center">
         <Items
-          :name="items.name"
+          :title="items.title"
           :price="items.price"
-          :image="items.image"
+          :thumbnail="items.thumbnail"
           :description="items.description"
           :id="items.id"
-          :list-img="items.listImg"
+          :images="items.images"
+          :category="items.category"
+          :discountPercentage="items.discountPercentage"
         />
       </div>
     </div>
@@ -47,16 +53,18 @@ import { Navigation } from "swiper/modules";
       class="mt-[24px]"
     >
       <SwiperSlide
-        v-for="items in ProductLatest"
+        v-for="items in data.products"
         class="flex items-center animation-slide"
       >
         <Items
-          :name="items.name"
+          :title="items.title"
           :price="items.price"
-          :image="items.image"
+          :thumbnail="items.thumbnail"
           :description="items.description"
           :id="items.id"
-          :list-img="items.listImg"
+          :images="items.images"
+          :category="items.category"
+          :discountPercentage="items.discountPercentage"
         />
       </SwiperSlide>
       <div

@@ -10,9 +10,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { register } from "swiper/element/bundle";
 import { Navigation } from "swiper/modules";
-import { Product } from "../../utils/data/Product";
 
+const { data } = (await useFetch(
+  "https://dummyjson.com/products?limit=10"
+)) as any;
 onMounted(() => {
+  console.log(data);
   register();
 });
 </script>
@@ -33,16 +36,18 @@ onMounted(() => {
         :modules="[Navigation]"
       >
         <swiper-slide
-          v-for="items in Product"
+          v-for="items in data.products"
           class="flex items-center animation-slide"
         >
           <Items
-            :name="items.name"
+            :title="items.title"
             :price="items.price"
-            :image="items.image"
+            :thumbnail="items.thumbnail"
             :description="items.description"
             :id="items.id"
-            :list-img="items.listImg"
+            :images="items.images"
+            :category="items.category"
+            :discountPercentage="items.discountPercentage"
           />
         </swiper-slide>
       </swiper>

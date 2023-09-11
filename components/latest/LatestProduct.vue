@@ -7,6 +7,10 @@ import { useGetScreenSize } from "../../composables/useGetScreen";
 const { screenWidth } = useGetScreenSize();
 import { Navigation } from "swiper/modules";
 import { ProductLatest } from "../../utils/data/Product";
+
+const { data } = (await useFetch(
+  "https://dummyjson.com/products?limit=10"
+)) as any;
 </script>
 
 <template>
@@ -14,7 +18,7 @@ import { ProductLatest } from "../../utils/data/Product";
     <Section text="Latest Product" />
     <div class="flex py-[24px]">
       <div
-        class="rounded-[8px] bg-[#28A0F6] md:w-[952px] p-[32px] md:h-[494px] hidden md:block"
+        class="rounded-[8px] bg-[#28A0F6] md:w-[652px] p-[32px] md:h-[494px] hidden md:block"
       >
         <p class="text-[#fff] font-normal">Discount</p>
         <p class="font-bold text-[48px] text-[#fff]">More And More</p>
@@ -24,7 +28,7 @@ import { ProductLatest } from "../../utils/data/Product";
         </div>
       </div>
       <Swiper
-        class="flex justify-between flex-wrap md:ml-[-50px]"
+        class="flex justify-between flex-wrap md:ml-[-50px] swiper-content"
         :slides-per-view="useGetSlide(screenWidth)"
         :space-between="screenWidth < 376 ? 40 : 10"
         :scrollbar="{ draggable: true }"
@@ -37,16 +41,18 @@ import { ProductLatest } from "../../utils/data/Product";
         :modules="[Navigation]"
       >
         <swiper-slide
-          v-for="items in ProductLatest"
+          v-for="items in data.products"
           class="flex items-center animation-slide"
         >
           <Items
-            :name="items.name"
+            :title="items.title"
             :price="items.price"
-            :image="items.image"
+            :thumbnail="items.thumbnail"
             :description="items.description"
             :id="items.id"
-            :list-img="items.listImg"
+            :images="items.images"
+            :category="items.category"
+            :discountPercentage="items.discountPercentage"
           />
         </swiper-slide>
         <div
@@ -58,3 +64,11 @@ import { ProductLatest } from "../../utils/data/Product";
     </div>
   </div>
 </template>
+
+<style scoped>
+@media screen and (min-width: 1024px) {
+  .swiper-content {
+    margin-left: -70px;
+  }
+}
+</style>

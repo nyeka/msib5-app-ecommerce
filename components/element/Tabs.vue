@@ -30,12 +30,19 @@ const prop = defineProps<{
   tabs: string[];
 }>();
 const includesText = prop.tabs.some((item) =>
-  item.includes("/https" || "/assets" || "/src")
+  item.includes("jpg" || "/assets" || "/src")
 );
 const activeTab = ref(prop.tabs[0]);
 </script>
 
 <style scoped>
+img {
+  width: 120px;
+  height: 120px;
+  background-color: #f9fafb;
+  object-fit: cover;
+  cursor: pointer;
+}
 .active {
   border: 3px solid #28a0f6;
 }
