@@ -45,7 +45,7 @@
             })
           "
         >
-          Sign In
+          {{ isLoading ? "Loading..." : "Sign in" }}
         </button>
         <button class="btn-github">Sign in with github</button>
       </div>
@@ -54,9 +54,10 @@
 </template>
 
 <script setup lang="ts">
-const { signIn } = useAuth();
+const { signIn, status } = useAuth();
 const username = ref("") as any;
 const password = ref("") as any;
+const isLoading = status.value === "loading";
 
 const mySignInHandler = async ({
   username,
