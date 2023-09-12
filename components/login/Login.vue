@@ -24,8 +24,8 @@
           placeholder="Your Password"
           @keyup.enter="
             mySignInHandler({
-              username: username.value,
-              password: password.value,
+              username,
+              password,
             })
           "
         />

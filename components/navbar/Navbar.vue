@@ -40,7 +40,7 @@ const { status, data }: { status: IStatus; data: IData } = useAuth() as any;
       <div class="md:flex hidden gap-[32px] list-none items-center">
         <RouterLink to="/">Home</RouterLink>
         <div class="flex gap-[12px]">
-          <li>Products</li>
+          <RouterLink to="/products/list">Products</RouterLink>
           <img src="~/assets/chevdown.svg" />
         </div>
         <div class="flex gap-[12px]">
