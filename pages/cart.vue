@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-b from-[#C5E5FD] to-[#fff]">
+  <div class="content">
     <Navbar />
     <div class="p-8">
       <div class="flex flex-col gap-[24px] mt-[120px] flex-wrap">
@@ -82,3 +82,9 @@ const store = useProductStore();
 import Navbar from "@/components/navbar/Navbar.vue";
 import Footer from "@/components/footer/Footer.vue";
 </script>
+
+<style scoped>
+.content {
+  background: linear-gradient(180deg, #d8eefd 14.05%, #fff 100%);
+}
+</style>

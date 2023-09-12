@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col bg-gradient-to-b from-[#C5E5FD] to-[#fff]">
+  <div class="flex flex-col content">
     <Navbar />
     <div v-if="data.title" class="container p-8">
       <div class="mt-[120px] flex flex-col gap-[32px]">
@@ -134,3 +134,9 @@ const removeQuantity = () => {
   }
 };
 </script>
+
+<style scoped>
+.content {
+  background: linear-gradient(180deg, #d8eefd 14.05%, #fff 100%);
+}
+</style>

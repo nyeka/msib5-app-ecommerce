@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-swiper"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
+    "nuxt-swiper",
+    "@morpheme/nuxt",
+    "@sidebase/nuxt-auth",
+  ],
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
@@ -23,4 +29,14 @@ export default defineNuxtConfig({
     "swiper/css/navigation",
     "swiper/css/pagination",
   ],
+  auth: {
+    provider: {
+      pages: {
+        login: "/login",
+      },
+    },
+    globalAppMiddleware: {
+      isEnabled: true,
+    },
+  },
 });

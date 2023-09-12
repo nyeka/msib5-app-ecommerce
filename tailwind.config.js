@@ -6,6 +6,7 @@ module.exports = {
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
+    "./node_modules/@morpheme/**/src/**/*.{vue,js,ts,jsx,tsx,css}",
   ],
   theme: {
     extend: {
@@ -18,4 +19,5 @@ module.exports = {
     },
   },
   plugins: [],
+  presets: [require("@morpheme/tailwind-config/preset")],
 };
