@@ -18,6 +18,7 @@
         />
         <VInput
           wrapper-class="mb-2"
+          type="password"
           v-model="password"
           name="password"
           label="Password"
