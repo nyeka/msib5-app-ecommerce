@@ -11,20 +11,23 @@
       <div>
         <VInput
           wrapper-class="mb-2"
-          v-model:username="username"
-          :value="username"
+          v-model="username"
           name="Email"
           label="Email"
           placeholder="Your Email"
         />
         <VInput
           wrapper-class="mb-2"
-          v-model:password="password"
-          :value="password"
+          v-model="password"
           name="password"
           label="Password"
           placeholder="Your Password"
-          @keyup.enter="mySignInHandler({ username, password })"
+          @keyup.enter="
+            mySignInHandler({
+              username: username.value,
+              password: password.value,
+            })
+          "
         />
       </div>
       <div class="flex justify-between">
@@ -34,7 +37,12 @@
       <div class="flex flex-col gap-[12px]">
         <button
           class="btn-login"
-          @click="mySignInHandler({ username, password })"
+          @click="
+            mySignInHandler({
+              username,
+              password,
+            })
+          "
         >
           Sign In
         </button>
@@ -46,10 +54,8 @@
 
 <script setup lang="ts">
 const { signIn } = useAuth();
-const { username, password } = reactive({
-  username: "",
-  password: "",
-});
+const username = ref("") as any;
+const password = ref("") as any;
 
 const mySignInHandler = async ({
   username,
