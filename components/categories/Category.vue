@@ -52,7 +52,7 @@ const data = [
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }"
-        class="pt-[24px]"
+        class="pt-[24px] content"
       >
         <SwiperSlide
           v-for="item in data"
@@ -64,7 +64,13 @@ const data = [
             <div class="mt-[12px] text-center">{{ item.title }}</div>
           </div>
         </SwiperSlide>
-      </swiper> 
+      </swiper>
     </div>
   </div>
 </template>
+
+<style scoped>
+.content {
+  margin-top: 24px;
+}
+</style>

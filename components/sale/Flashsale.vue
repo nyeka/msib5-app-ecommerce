@@ -62,7 +62,7 @@ onMounted(() => {
 
 <style scoped>
 .content {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 </style>
