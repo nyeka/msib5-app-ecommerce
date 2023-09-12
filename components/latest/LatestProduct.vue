@@ -69,6 +69,7 @@ const { data } = (await useFetch(
 @media screen and (min-width: 1024px) {
   .swiper-content {
     margin-left: -70px;
+    padding-top: 24px;
   }
 }
 </style>

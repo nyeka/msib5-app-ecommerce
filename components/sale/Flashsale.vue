@@ -25,7 +25,7 @@ onMounted(() => {
     <div class="relative">
       <Section text="Flash Sale" />
       <swiper
-        class="flex justify-between py-[24px] flex-wrap gap-[12px] w-full"
+        class="flex justify-between py-[24px] flex-wrap gap-[12px] w-full content"
         :slides-per-view="useGetSlide(screenWidth)"
         :scrollbar="{ draggable: true }"
         :space-between="screenWidth < 376 ? 40 : 10"
@@ -59,3 +59,10 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.content {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+</style>
