@@ -30,6 +30,7 @@ export default defineNuxtConfig({
     "swiper/css/pagination",
   ],
   auth: {
+    origin: "https://msib5-app-ecommerce.vercel.app",
     provider: {
       pages: {
         login: "/login",
