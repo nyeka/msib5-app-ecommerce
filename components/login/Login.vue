@@ -12,6 +12,7 @@
         <VInput
           wrapper-class="mb-2"
           v-model="username"
+          :value="username"
           name="Email"
           label="Email"
           placeholder="Your Email"
@@ -19,6 +20,7 @@
         <VInput
           wrapper-class="mb-2"
           v-model="password"
+          :value="password"
           name="password"
           label="Password"
           placeholder="Your Password"
