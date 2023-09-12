@@ -58,6 +58,7 @@ const mySignInHandler = async ({
   username: string;
   password: string;
 }) => {
+  console.log(username, password);
   if (!username || !password)
     return alert("Please enter your username and password");
 
