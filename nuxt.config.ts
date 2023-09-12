@@ -25,9 +25,9 @@ export default defineNuxtConfig({
     "swiper/css/pagination",
   ],
   auth: {
-    origin: process.env.NUXT_AUTH_ORIGIN,
+    origin: process.env.AUTH_ORIGIN,
     strategies: {
-      origin: process.env.NUXT_AUTH_ORIGIN,
+      origin: process.env.AUTH_ORIGIN,
     },
     provider: {
       pages: {
