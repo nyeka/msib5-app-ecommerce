@@ -11,7 +11,7 @@
       <div>
         <VInput
           wrapper-class="mb-2"
-          v-model="username"
+          v-model:username="username"
           :value="username"
           name="Email"
           label="Email"
@@ -19,7 +19,7 @@
         />
         <VInput
           wrapper-class="mb-2"
-          v-model="password"
+          v-model:password="password"
           :value="password"
           name="password"
           label="Password"
