@@ -16,11 +16,6 @@ export default defineNuxtConfig({
     ],
   },
   swiper: {
-    // Swiper options
-    //----------------------
-    // prefix: 'Swiper',
-    // styleLang: 'css',
-
     modules: ["navigation", "pagination"], // all modules are imported by default
   },
   css: [
@@ -30,7 +25,10 @@ export default defineNuxtConfig({
     "swiper/css/pagination",
   ],
   auth: {
-    origin: "https://msib5-app-ecommerce.vercel.app",
+    origin: process.env.NUXT_AUTH_ORIGIN,
+    strategies: {
+      origin: process.env.NUXT_AUTH_ORIGIN,
+    },
     provider: {
       pages: {
         login: "/login",
