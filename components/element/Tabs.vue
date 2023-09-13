@@ -1,15 +1,22 @@
 <template>
   <div>
     <div class="flex w-fit gap-[12px] justify-center items-center list-none">
-      <li
+      <div
+        id="tab"
         v-if="!includesText"
-        v-for="(tab, index) in tabs"
+        v-for="(tab, index) in prop.tabs"
         :key="index"
         @click="activeTab = tab"
         :class="activeTab === tab ? 'active' : 'not-active'"
       >
-        {{ tab }}
-      </li>
+        <div class="flex gap-[24px]">
+          <span
+            v-if="prop.tabs.includes('Green')"
+            class="w-[20px] h-[20px] flex rounded-full bg-[green]"
+          ></span>
+          {{ tab }}
+        </div>
+      </div>
       <div
         v-else
         id="content"
@@ -29,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const prop = defineProps<{
   tabs: string[];
 }>();
@@ -37,9 +44,6 @@ const includesText = prop.tabs.some((item) =>
   item.includes("jpg" || "/assets" || "/src")
 );
 const activeTab = ref(prop.tabs[0]);
-const setActiveTab = (index: number) => {
-  activeTab.value = index as any;
-};
 </script>
 
 <style scoped>
@@ -54,7 +58,7 @@ img {
   border: 3px solid #28a0f6;
 }
 .not-active {
-  background-color: rgb(209 213 219);
+  background-color: rgb(209 213 219) !important;
 }
 #content {
   cursor: pointer;
@@ -64,7 +68,7 @@ img {
   width: fit-content;
   border-radius: 8px;
 }
-li {
+#tab {
   cursor: pointer;
   background-color: #f9fafb;
   padding: 12px;

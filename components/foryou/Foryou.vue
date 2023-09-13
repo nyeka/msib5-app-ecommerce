@@ -9,7 +9,7 @@ const { screenWidth } = useGetScreenSize();
 import { Navigation } from "swiper/modules";
 
 const { data } = (await useFetch(
-  "https://dummyjson.com/products?limit=10"
+  "https://dummyjson.com/products?limit=15"
 )) as any;
 </script>
 

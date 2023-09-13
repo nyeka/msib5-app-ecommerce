@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between font-bold font-poppins">
+  <div class="flex justify-between font-semibold font-poppins">
     <div class="flex gap-[12px] items-center md:text-[24px] flex-wrap">
       <p>{{ text }}</p>
       <button
