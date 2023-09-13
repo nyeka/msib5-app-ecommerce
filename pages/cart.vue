@@ -1,14 +1,14 @@
 <template>
-  <div class="content">
+  <div class="content font-semibold">
     <Navbar />
     <div class="p-8">
       <div class="flex flex-col gap-[24px] mt-[120px] flex-wrap">
         <p class="font-bold text-[40px]">Shoping Cart</p>
         <div v-if="store.Products.length > 0" class="flex gap-[24px] flex-wrap">
-          <div class="flex flex-col gap-[24px] basis-2/3">
+          <div class="flex flex-col gap-[24px] md:basis-2/3 w-full">
             <div
               v-for="product in store.Products"
-              class="flex gap-[24px] w-full bg-[#FFF] p-2 rounded-[4px] flex-wrap md:flex-nowrap"
+              class="flex gap-[24px] w-fit md:w-full bg-[#FFF] p-2 rounded-[4px] flex-wrap md:flex-nowrap"
             >
               <div
                 class="flex md:w-[288px] md:h-[162px] justify-center items-center bg-gray-300 border-x-2 border-t-2 rounded-[8px] rounded-b-none"
@@ -31,7 +31,7 @@
                     {{ formatToUSD(Number(product.price)) }}
                   </p>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex justify-between font-normal">
                   <p>Qty: {{ product.quantity }}</p>
                   <button
                     class="text-[#B42318]"

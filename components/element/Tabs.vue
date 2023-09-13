@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="flex w-fit gap-[12px] justify-center items-center">
+    <div class="flex w-fit gap-[12px] justify-center items-center list-none">
       <li
         v-if="!includesText"
         v-for="(tab, index) in tabs"
@@ -10,7 +10,7 @@
       >
         {{ tab }}
       </li>
-      <li
+      <div
         v-else
         id="content"
         v-for="(tab, index) in tabs"
@@ -23,8 +23,8 @@
         :class="activeTab === tab ? 'active' : 'not-active'"
       >
         <img :src="tab" alt="gambar" />
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ img {
   width: 120px;
   height: 120px;
   background-color: #f9fafb;
-  object-fit: cover;
+  object-fit: contain;
   cursor: pointer;
 }
 .active {
@@ -60,6 +60,7 @@ img {
   cursor: pointer;
   background-color: #f9fafb;
   padding: 12px;
+  height: fit-content;
   width: fit-content;
   border-radius: 8px;
 }

@@ -16,6 +16,9 @@ module.exports = {
         tertiary: "rgba(255, 255, 255, 0.10)",
         quaternary: "rgba(255, 255, 255, 0.10)",
       },
+      fontFamily: {
+        poppins: ["Poppins"],
+      },
     },
   },
   plugins: [],

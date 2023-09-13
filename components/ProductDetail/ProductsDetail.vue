@@ -1,19 +1,23 @@
 <template>
-  <div class="flex flex-col content">
+  <div class="flex flex-col content font-semibold">
     <Navbar />
     <div v-if="data.title" class="container p-8">
       <div class="mt-[120px] flex flex-col gap-[32px]">
         <div>
-          <div class="flex justify-between items-center">
-            <button
-              class="text-[#000] border-2 border-[#D0D5DD] flex justify-center rounded-[8px] items-center pl-[18px] pr-[18px] pt-[10px] pb-[10px]"
-              @click="$router.back()"
-            >
-              Back
-            </button>
+          <div
+            class="flex justify-between items-center font-normal flex-wrap gap-[12px]"
+          >
+            <div class="flex justify-between">
+              <button
+                class="text-[#000] border-2 border-[#D0D5DD] flex justify-center rounded-[8px] items-center pl-[18px] pr-[18px] pt-[10px] pb-[10px]"
+                @click="$router.back()"
+              >
+                Back
+              </button>
+            </div>
             <p class="font-bold text-[16px] md:text-[34px]">Product Detail</p>
             <button
-              class="text-[#fff] bg-[#0984DD] flex justify-center rounded-[8px] items-center pl-[18px] pr-[18px] pt-[10px] pb-[10px]"
+              class="text-[#fff] bg-[#0984DD] flex justify-center rounded-[8px] items-center pl-[18px] pr-[18px] pt-[10px] pb-[10px] w-full sm:w-fit"
               @click="
                 addProduct({
                   id: data?.id,
@@ -39,7 +43,7 @@
               <img
                 :src="image ? image : data?.images[0]"
                 alt="image"
-                class="w-fit h-[650px] object-cover"
+                class="w-fit h-fit md:h-[550px] object-contain"
               />
             </div>
             <Tabs @change="handleCustomEvent" :tabs="data?.images" />
@@ -53,15 +57,15 @@
                 {{ formatToUSD(Number(data?.price)) }}
               </p>
             </div>
-            <div class="flex flex-col gap-[12px]">
+            <div class="flex flex-col gap-[12px] font-normal">
               <p>Color</p>
               <Color />
             </div>
-            <div class="flex flex-col gap-[12px]">
+            <div class="flex flex-col gap-[12px] font-normal">
               <p>Size</p>
               <Size />
             </div>
-            <div class="flex flex-col gap-[12px]">
+            <div class="flex flex-col gap-[12px] font-normal">
               <p>Quantity</p>
               <div class="flex gap-[12px]">
                 <button
@@ -72,7 +76,7 @@
                 </button>
                 <input
                   :value="itemquantity"
-                  class="p-2 cursor-not-allowed rounded-[8px] w-fit md:w-[46px] md:h-[46px] text-center"
+                  class="p-2 cursor-not-allowed rounded-[8px] w-[46px] md:h-[46px] text-center"
                   disabled
                 />
                 <button
@@ -83,7 +87,7 @@
                 </button>
               </div>
             </div>
-            <div>
+            <div class="font-normal w-full">
               {{ data?.description }}
             </div>
           </div>

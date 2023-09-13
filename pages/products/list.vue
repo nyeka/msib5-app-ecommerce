@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content font-semibold">
     <Navbar />
     <div
       class="container mx-auto p-8 flex flex-col items-center justify-center gap-[24px]"

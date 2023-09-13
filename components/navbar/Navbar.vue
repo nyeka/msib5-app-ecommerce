@@ -37,7 +37,7 @@ const userImage = data?.value?.user?.image;
         : 'fixed w-full flex justify-between items-center px-[32px] py-[18px]'
     "
   >
-    <div class="flex gap-[12px] text-center">
+    <div class="flex gap-[12px] text-center text-[#475467]">
       <img src="~/assets/Logo.png" alt="logo" />
       <div class="md:flex hidden gap-[32px] list-none items-center">
         <RouterLink to="/">Home</RouterLink>
@@ -63,7 +63,7 @@ const userImage = data?.value?.user?.image;
         />
         <div class="absolute top-0 right-0" v-if="store.totalItemsCart > 0">
           <p
-            class="text-[#fff] text-[10px] bg-[#0984DD] rounded-full w-[18px] h-[16px] flex justify-center items-center"
+            class="text-[#fff] text-[10px] bg-[#DC6803] rounded-full w-[18px] h-[16px] flex justify-center items-center"
           >
             {{ store.totalItemsCart }}
           </p>

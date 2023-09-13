@@ -57,7 +57,7 @@
 const { signIn, status } = useAuth();
 const username = ref("") as any;
 const password = ref("") as any;
-const isLoading = status.value === "loading";
+const isLoading = ref(false) as any;
 
 const mySignInHandler = async ({
   username,
@@ -66,16 +66,19 @@ const mySignInHandler = async ({
   username: string;
   password: string;
 }) => {
-  console.log(username, password);
   if (!username || !password)
     return alert("Please enter your username and password");
-
+  isLoading.value = true;
   const data = await signIn("credentials", {
     username,
     password,
     redirect: false,
   });
-  if (data?.error) return alert("Invalid username or password");
+  isLoading.value = false;
+  if (data?.error) {
+    isLoading.value = false;
+    return alert("Invalid username or password");
+  }
   return navigateTo("/", { external: true });
 };
 </script>

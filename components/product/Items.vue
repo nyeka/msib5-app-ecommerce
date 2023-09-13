@@ -1,6 +1,6 @@
 <template>
   <div
-    class="md:w-[224px] rounded-[8px] cursor-pointer"
+    class="sm:w-[224px] rounded-[8px] cursor-pointer"
     :key="props.id"
     @click="gotoDetails(props.id)"
   >
@@ -12,9 +12,10 @@
     <div
       class="bg-[#fff] p-[24px] rounded-b-[8px] border-b-2 border-l-2 border-r-2"
     >
-      <label class="rounded-[16px] bg-[#F2F4F7] px-[12px] py-[4px]">{{
-        props.category
-      }}</label>
+      <label
+        class="rounded-[16px] bg-[#F2F4F7] font-semibold px-[12px] py-[4px]"
+        >{{ props.category }}</label
+      >
       <p class="font-normal mt-[16px] line-clamp-1">{{ props.title }}</p>
       <div class="flex justify-between mt-[8px]">
         <p class="font-bold">{{ formatToUSD(props.price) }}</p>
