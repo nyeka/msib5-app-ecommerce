@@ -7,6 +7,11 @@ export const useProductStore = defineStore("Product", {
     TotalQuantity: 0,
   }),
 
+  persist: {
+    key: "Product",
+    storage: persistedState.localStorage,
+  },
+
   getters: {
     getTotalPrice(): number {
       return this.Products.reduce(

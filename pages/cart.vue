@@ -2,7 +2,7 @@
   <div class="content font-semibold">
     <Navbar />
     <div class="p-8">
-      <div class="flex flex-col gap-[24px] mt-[120px] flex-wrap">
+      <div class="flex flex-col gap-[24px] mt-[120px]">
         <p class="font-bold text-[40px]">Shoping Cart</p>
         <div v-if="store.Products.length > 0" class="flex gap-[24px] flex-wrap">
           <div class="flex flex-col gap-[24px] md:basis-2/3 w-full">

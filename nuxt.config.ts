@@ -22,8 +22,15 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "nuxt-swiper",
     "@morpheme/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
     "@sidebase/nuxt-auth",
   ],
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: "strict",
+    },
+    storage: "localStorage",
+  },
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
