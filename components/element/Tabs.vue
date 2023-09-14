@@ -57,9 +57,7 @@ img {
 .active {
   border: 3px solid #28a0f6;
 }
-.not-active {
-  background-color: rgb(209 213 219) !important;
-}
+
 #content {
   cursor: pointer;
   background-color: #f9fafb;
