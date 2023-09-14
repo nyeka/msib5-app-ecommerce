@@ -14,7 +14,7 @@
               v-if="prop.tabs.includes('Green')"
               class="w-[22px] h-[20px] flex rounded-full bg-[green]"
             ></span>
-            {{ tab }}
+            {{ tab }} 
           </div>
         </div>
       </div>

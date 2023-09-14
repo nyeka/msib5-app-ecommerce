@@ -68,7 +68,7 @@
               <p>Quantity</p>
               <div class="flex gap-[12px]">
                 <button
-                  class="bg-gray-300 p-2 rounded-[8px] md:w-[46px] md:h-[46px]"
+                  class="bg-gray-300 p-2 rounded-[8px] w-[46px] h-[46px]"
                   @click="removeQuantity"
                 >
                   -
@@ -79,7 +79,7 @@
                   disabled
                 />
                 <button
-                  class="bg-primary p-2 rounded-[8px] text-[#fff] md:w-[46px] md:h-[46px]"
+                  class="bg-primary p-2 rounded-[8px] text-[#fff] w-[46px] h-[46px]"
                   @click="addQuantity"
                 >
                   +
