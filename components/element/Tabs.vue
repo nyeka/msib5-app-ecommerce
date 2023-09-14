@@ -62,6 +62,8 @@ img {
   cursor: pointer;
   background-color: #f9fafb;
   padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
   height: fit-content;
   width: fit-content;
   border-radius: 8px;
