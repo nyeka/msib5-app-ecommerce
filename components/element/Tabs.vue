@@ -9,10 +9,10 @@
         @click="activeTab = tab"
         :class="activeTab === tab ? 'active' : 'not-active'"
       >
-        <div class="flex gap-[24px]">
+        <div class="flex w-full text-center gap-[24px]">
           <span
             v-if="prop.tabs.includes('Green')"
-            class="w-[20px] h-[20px] flex rounded-full bg-[green]"
+            class="w-[22px] h-[20px] flex rounded-full bg-[green]"
           ></span>
           {{ tab }}
         </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 const prop = defineProps<{
   tabs: string[];
 }>();

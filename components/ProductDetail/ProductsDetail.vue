@@ -7,13 +7,12 @@
           <div
             class="flex justify-between items-center font-normal flex-wrap gap-[12px]"
           >
-            <div class="flex justify-between">
-              <button
-                class="text-[#000] border-2 border-[#D0D5DD] flex justify-center rounded-[8px] items-center pl-[18px] pr-[18px] pt-[10px] pb-[10px]"
-                @click="$router.back()"
-              >
-                Back
-              </button>
+            <div
+              class="flex justify-between button-back gap-[12px] p-3 cursor-pointer"
+              @click="$router.back()"
+            >
+              <img src="~/assets/arrowleft.svg" alt="arrow left" />
+              <span> Back </span>
             </div>
             <p class="font-bold text-[16px] md:text-[34px]">Product Detail</p>
             <button
@@ -80,7 +79,7 @@
                   disabled
                 />
                 <button
-                  class="bg-primary p-2 rounded-[8px] md:w-[46px] md:h-[46px]"
+                  class="bg-primary p-2 rounded-[8px] text-[#fff] md:w-[46px] md:h-[46px]"
                   @click="addQuantity"
                 >
                   +
@@ -100,7 +99,7 @@
     >
       Id Not Found
     </div>
-    <Footer />
+    <FooterProductFooter />
   </div>
 </template>
 
@@ -142,5 +141,12 @@ const removeQuantity = () => {
 <style scoped>
 .content {
   background: linear-gradient(180deg, #d8eefd 14.05%, #fff 100%);
+}
+
+.button-back {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
 </style>

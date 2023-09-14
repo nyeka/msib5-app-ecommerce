@@ -16,7 +16,7 @@
                 <img
                   :src="product.image"
                   :alt="product.name"
-                  class="w-fit h-fit"
+                  class="w-fit sm:w-[155px] object-contain"
                 />
               </div>
               <div class="w-full flex-col flex justify-between py-3 px-[20px]">
@@ -56,9 +56,12 @@
               <p>Shipping And Taxes</p>
               <p>Calculated at checkout</p>
             </div>
-            <button class="bg-primary p-[12px] text-white font-bold">
-              Checkout
-            </button>
+            <div
+              class="bg-primary justify-center px-[12px] py-[20px] text-white font-semibold flex gap-[12px]"
+            >
+              <img src="~/assets/arrowright.svg" />
+              <button>Checkout</button>
+            </div>
           </div>
         </div>
         <div
@@ -69,18 +72,16 @@
         </div>
       </div>
     </div>
-    <Footer />
+    <FooterProductFooter />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useProductStore } from "~/store/Product";
-import { formatIDR } from "~/utils/ConvertNumber";
 import { formatToUSD } from "~/utils/convertToUsd";
 
 const store = useProductStore();
 import Navbar from "@/components/navbar/Navbar.vue";
-import Footer from "@/components/footer/Footer.vue";
 </script>
 
 <style scoped>

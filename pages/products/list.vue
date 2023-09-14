@@ -46,6 +46,7 @@
         <p>Theres No Data</p>
       </div>
     </div>
+    <FooterProductFooter />
   </div>
 </template>
 
