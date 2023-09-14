@@ -14,10 +14,6 @@ export const useProductStore = defineStore("Product", {
         0
       );
     },
-    clearItems(): void {
-      this.Products = [];
-      this.TotalQuantity = 0;
-    },
 
     totalItemsCart(): number {
       const uniqeProduct: any = [];
@@ -46,6 +42,10 @@ export const useProductStore = defineStore("Product", {
         this.Products.push(product);
       }
       this.TotalQuantity++;
+    },
+    clearItems(): void {
+      this.Products = [];
+      this.TotalQuantity = 0;
     },
     removeProduct(id: number) {
       const Exist = this.Products.find((item) => item.id === id);

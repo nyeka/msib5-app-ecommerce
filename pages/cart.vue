@@ -57,7 +57,13 @@
               <p>Calculated at checkout</p>
             </div>
             <div
-              class="bg-primary justify-center rounded px-[12px] py-[20px] text-white font-semibold flex gap-[12px]"
+              class="bg-primary cursor-pointer justify-center rounded px-[12px] py-[20px] text-white font-semibold flex gap-[12px]"
+              @click="
+                () => {
+                  $router.push('/checkout');
+                  store.clearItems();
+                }
+              "
             >
               <img src="~/assets/arrowright.svg" />
               <button>Checkout</button>
