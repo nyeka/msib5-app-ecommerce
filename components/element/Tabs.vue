@@ -1,20 +1,21 @@
 <template>
   <div>
     <div class="flex w-fit gap-[12px] justify-center items-center list-none">
-      <div
-        id="tab"
-        v-if="!includesText"
-        v-for="(tab, index) in prop.tabs"
-        :key="index"
-        @click="activeTab = tab"
-        :class="activeTab === tab ? 'active' : 'not-active'"
-      >
-        <div class="flex w-full text-center gap-[24px]">
-          <span
-            v-if="prop.tabs.includes('Green')"
-            class="w-[22px] h-[20px] flex rounded-full bg-[green]"
-          ></span>
-          {{ tab }}
+      <div v-if="!includesText" class="content flex gap-[12px] flex-wrap">
+        <div
+          id="tab"
+          v-for="(tab, index) in prop.tabs"
+          :key="index"
+          @click="activeTab = tab"
+          :class="activeTab === tab ? 'active' : 'not-active'"
+        >
+          <div class="flex w-full text-center gap-[24px] flex-wrap">
+            <span
+              v-if="prop.tabs.includes('Green')"
+              class="w-[22px] h-[20px] flex rounded-full bg-[green]"
+            ></span>
+            {{ tab }}
+          </div>
         </div>
       </div>
       <div
@@ -48,11 +49,15 @@ const activeTab = ref(prop.tabs[0]);
 
 <style scoped>
 img {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   background-color: #f9fafb;
-  object-fit: contain;
+  object-fit: cover;
   cursor: pointer;
+}
+
+.content {
+  flex-wrap: wrap;
 }
 .active {
   border: 3px solid #28a0f6;
@@ -62,17 +67,25 @@ img {
   cursor: pointer;
   background-color: #f9fafb;
   padding: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  height: fit-content;
-  width: fit-content;
+  width: 132px;
+  height: 124px;
   border-radius: 8px;
 }
+@media screen and (max-width: 450px) {
+  #content {
+    width: fit-content;
+    height: fit-content;
+  }
+}
+
 #tab {
   cursor: pointer;
   background-color: #f9fafb;
   padding: 12px;
   width: max-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   border-radius: 8px;
   font-weight: 600;
 }
