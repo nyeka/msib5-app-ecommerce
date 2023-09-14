@@ -93,7 +93,7 @@
       </div>
       <span class="w-full h-[1px] bg-[#475467]"></span>
       <div class="flex justify-between flex-wrap text-[#fff] font-semibold">
-        <img src="~/assets/logo.png" alt="logo" />
+        <img src="~/assets/Logo.png" alt="logo" />
         <p>&copy; 2077 Morpheme UI. All rights reserved.</p>
       </div>
     </div>
